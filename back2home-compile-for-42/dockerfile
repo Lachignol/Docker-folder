@@ -1,0 +1,41 @@
+FROM ubuntu:20.04
+
+# Mise à jour des paquets et installation des outils essentiels + dépendances nécessaires
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    git\
+    gcc \
+    make \
+    pkg-config \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libkrb5-dev \
+    libnghttp2-dev \
+    libz-dev \
+    libpsl-dev \
+    libssh-dev \
+    libzstd-dev \
+    libbrotli-dev \
+    libidn2-0-dev \
+    libldap2-dev \
+    libsasl2-dev \
+    librtmp-dev \
+    libgcrypt20-dev \
+    libgpg-error-dev \
+    libunistring-dev \
+    nettle-dev \
+    ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
+
+# Copier le code source dans le container
+COPY . /back2home
+
+# Définir le répertoire de travail
+WORKDIR /back2home
+
+# Compiler l’application
+
+# Commande par défaut à l'exécution du container
+
+CMD ["/bin/bash"]
+
